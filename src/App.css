@@ -2,6 +2,10 @@
   padding-top: 2rem;
 }
 
+.headerText {
+  align-self: center;
+}
+
 .numberCard {
   align-items: center;
   padding-top: 4%;

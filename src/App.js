@@ -1,8 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { Container, Card } from "react-bootstrap";
-import { Chart, CountrySelector, NumberBoard } from "./components";
+import { Container } from "react-bootstrap";
+import { Chart, CountrySelector, NumberBoard, Header } from "./components";
 import { fetchData } from "./api";
 
 class App extends React.Component {
@@ -30,10 +30,7 @@ class App extends React.Component {
   render() {
     return (
       <Container className="homeContainer">
-        <Card>
-          <h1 className="styles.headingText">Covid19</h1>
-        </Card>
-
+        <Header />
         <NumberBoard data={this.state.summaryData} />
         <CountrySelector />
         <Chart />
