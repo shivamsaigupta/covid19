@@ -7,3 +7,14 @@
   padding-top: 4%;
   padding-bottom: 4%;
 }
+
+.numberText {
+  margin-bottom: 0px;
+}
+
+.deltaText {
+  color: green;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 4rem;
+}

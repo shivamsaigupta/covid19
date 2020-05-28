@@ -8,16 +8,25 @@ import { fetchData } from "./api";
 class App extends React.Component {
   state = {
     summaryData: [],
+    error: "er",
   };
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.fetchSummary();
+  }
+
+  fetchSummary = async () => {
     const summaryData = await fetchData();
     if (summaryData !== undefined) {
       this.setState({
         summaryData: summaryData,
       });
+    } else {
+      // if the request fails, re-try
+      this.fetchSummary();
     }
-  }
+  };
+
   render() {
     return (
       <Container className="homeContainer">
