@@ -23,7 +23,7 @@ class App extends React.Component {
       });
     } else {
       // if the request fails, re-try
-      this.fetchSummary();
+      setTimeout(this.fetchSummary(), 1000);
     }
   };
 
