@@ -43,7 +43,6 @@ class CountrySelector extends React.Component {
       <Form>
         <Form.Group
           onChange={this.onChange}
-          value={this.state.selectedCountry}
           controlId="countryForm.SelectCustom"
         >
           <Form.Control as="select" custom>

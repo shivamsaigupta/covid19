@@ -35,6 +35,35 @@ export const fetchData = async () => {
   }
 };
 
+export const fetchCountryData = async (countryCode) => {
+  try {
+    const {
+      data: { Countries },
+    } = await axios.get(summaryUrl);
+
+    const filteredCountryArr = Countries.filter(
+      (country) => country.CountryCode === countryCode
+    );
+
+    if (filteredCountryArr > 0) {
+      const countrySummary = filteredCountryArr[0];
+
+      const summaryData = {
+        totalConfirmed: countrySummary.TotalConfirmed,
+        totalDeaths: countrySummary.TotalDeaths,
+        totalRecovered: countrySummary.TotalRecovered,
+        newConfirmed: countrySummary.NewConfirmed,
+        newDeaths: countrySummary.NewDeaths,
+        newRecovered: countrySummary.NewRecovered,
+      };
+
+      return summaryData;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const fetchDailyUpdate = async (countryCode) => {
   try {
     const { data } = await axios.get(countrySpecificUrl + countryCode);
