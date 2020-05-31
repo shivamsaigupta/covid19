@@ -2,7 +2,7 @@ import axios from "axios";
 import axiosRetry from "axios-retry";
 
 const summaryUrl = "https://api.covid19api.com/summary";
-const countriesUrl = "https://api.covid19api.com/countries";
+const countriesUrl = "https://covid19.mathdro.id/api/countries/";
 const countrySpecificUrl = "https://api.covid19api.com/dayone/country/";
 
 export const fetchData = async () => {
@@ -37,28 +37,18 @@ export const fetchData = async () => {
 
 export const fetchCountryData = async (countryCode) => {
   try {
-    const {
-      data: { Countries },
-    } = await axios.get(summaryUrl);
-
-    const filteredCountryArr = Countries.filter(
-      (country) => country.CountryCode === countryCode
+    const { data } = await axios.get(
+      "https://covid19.mathdro.id/api/countries/" + countryCode
     );
-
-    if (filteredCountryArr > 0) {
-      const countrySummary = filteredCountryArr[0];
-
-      const summaryData = {
-        totalConfirmed: countrySummary.TotalConfirmed,
-        totalDeaths: countrySummary.TotalDeaths,
-        totalRecovered: countrySummary.TotalRecovered,
-        newConfirmed: countrySummary.NewConfirmed,
-        newDeaths: countrySummary.NewDeaths,
-        newRecovered: countrySummary.NewRecovered,
-      };
-
-      return summaryData;
-    }
+    const modifiedData = {
+      totalConfirmed: data.confirmed.value,
+      totalDeaths: data.deaths.value,
+      totalRecovered: data.recovered.value,
+      newConfirmed: 0,
+      newDeaths: 0,
+      newRecovered: 0,
+    };
+    return modifiedData;
   } catch (error) {
     console.log(error);
   }
@@ -73,7 +63,10 @@ export const fetchDailyUpdate = async (countryCode) => {
 
 export const fetchCountries = async () => {
   try {
-    const { data } = await axios.get(countriesUrl);
-    return data;
+    const {
+      data: { countries },
+    } = await axios.get(countriesUrl);
+    console.log("data ", countries);
+    return countries;
   } catch (error) {}
 };

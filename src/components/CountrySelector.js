@@ -23,12 +23,13 @@ class CountrySelector extends React.Component {
 
   renderCountries = () => {
     const { countryList } = this.state;
+    console.log(countryList);
     let output;
     if (countryList.length > 0) {
       output = countryList.map((country) => {
         return (
-          <option key={country.ISO2} value={country.ISO2}>
-            {country.Country}
+          <option key={country.iso2} value={country.iso2}>
+            {country.name}
           </option>
         );
       });
