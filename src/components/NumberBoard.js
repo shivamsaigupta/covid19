@@ -32,7 +32,7 @@ class NumberBoard extends React.Component {
     return (
       <Row noGutters>
         <Col md={4}>
-          <Card className="numberCard" style={{ borderColor: "orange" }}>
+          <Card className="numberCard" style={{ borderColor: "green" }}>
             <h2 className="numberText">
               <CountUp
                 start={0}
@@ -47,7 +47,7 @@ class NumberBoard extends React.Component {
         </Col>
 
         <Col md={4}>
-          <Card className="numberCard" style={{ borderColor: "green" }}>
+          <Card className="numberCard" style={{ borderColor: "orange" }}>
             <h2 className="numberText">
               <CountUp
                 start={0}

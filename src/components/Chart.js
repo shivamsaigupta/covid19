@@ -44,7 +44,7 @@ class Chart extends React.Component {
           data: dailyData.map((data) => data.Deaths),
           label: "Deaths",
           borderColor: "red",
-          backgroundColor: "white",
+          backgroundColor: "red",
           fill: true,
         },
       ],

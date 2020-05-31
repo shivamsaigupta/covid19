@@ -1,19 +1,30 @@
+body {
+  background-color: rgb(0, 3, 24);
+}
+
+h4 {
+  color: white;
+}
+
 .homeContainer {
   padding-top: 2rem;
 }
 
 .headerText {
   align-self: center;
+  color: white;
 }
 
 .numberCard {
   align-items: center;
   padding-top: 4%;
   padding-bottom: 4%;
+  background-color: black;
 }
 
 .numberText {
   margin-bottom: 0px;
+  color: white;
 }
 
 .deltaText {

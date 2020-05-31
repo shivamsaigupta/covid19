@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 
 class CountrySelector extends React.Component {
   state = {
-    selectedCountry: "",
+    selectedCountry: "SE",
     countryList: [],
   };
 
@@ -41,12 +41,20 @@ class CountrySelector extends React.Component {
 
   render() {
     return (
-      <Form>
+      <Form style={{ backgroundColor: "black" }}>
         <Form.Group
           onChange={this.onChange}
           controlId="countryForm.SelectCustom"
         >
-          <Form.Control as="select" custom>
+          <Form.Control
+            style={{ backgroundColor: "black", color: "white" }}
+            as="select"
+            default="Sweden"
+            custom
+          >
+            <option key="SE" value="SE">
+              Sweden
+            </option>
             {this.renderCountries()}
           </Form.Control>
         </Form.Group>
