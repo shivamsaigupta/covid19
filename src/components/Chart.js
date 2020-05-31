@@ -8,18 +8,20 @@ class Chart extends React.Component {
     dailyData: [],
   };
 
-  async componentDidMount() {
-    let dailyData = await fetchDailyUpdate();
+  componentDidMount() {
+    this.loadData();
+  }
+
+  componentDidUpdate() {
+    this.loadData();
+  }
+
+  loadData = async () => {
+    let dailyData = await fetchDailyUpdate(this.props.countryCode);
     if (dailyData != undefined) {
       this.setState({ dailyData });
-      console.log(this.state.dailyData);
-      console.log(
-        this.state.dailyData.map((data) =>
-          moment(data.Date).format("DD/MM/YYYY")
-        )
-      );
     }
-  }
+  };
 
   render() {
     const { dailyData } = this.state;
