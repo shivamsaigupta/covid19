@@ -2,6 +2,7 @@ import axios from "axios";
 import axiosRetry from "axios-retry";
 
 const summaryUrl = "https://api.covid19api.com/summary";
+const indiaUrl = "https://api.covid19api.com/dayone/country/india";
 
 export const fetchData = async () => {
   try {
@@ -31,4 +32,11 @@ export const fetchData = async () => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const fetchDailyUpdate = async () => {
+  try {
+    const { data } = await axios.get(indiaUrl);
+    return data;
+  } catch (error) {}
 };
