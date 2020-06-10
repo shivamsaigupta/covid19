@@ -12,8 +12,10 @@ class NumberBoard extends React.Component {
     this.loadData();
   }
 
-  componentDidUpdate() {
-    this.loadData();
+  componentDidUpdate(prevProps) {
+    if (prevProps.countryCode !== this.props.countryCode) {
+      this.loadData();
+    }
   }
 
   loadData = async () => {

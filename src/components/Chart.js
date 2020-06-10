@@ -12,8 +12,10 @@ class Chart extends React.Component {
     this.loadData();
   }
 
-  componentDidUpdate() {
-    this.loadData();
+  componentDidUpdate(prevProps) {
+    if (prevProps.countryCode !== this.props.countryCode) {
+      this.loadData();
+    }
   }
 
   loadData = async () => {
@@ -32,12 +34,14 @@ class Chart extends React.Component {
           data: dailyData.map((data) => data.Confirmed),
           label: "Confirmed",
           borderColor: "green",
+          spanGaps: true,
           fill: true,
         },
         {
           data: dailyData.map((data) => data.Recovered),
           label: "Recovered",
           borderColor: "orange",
+          spanGaps: true,
           fill: true,
         },
         {
@@ -45,6 +49,7 @@ class Chart extends React.Component {
           label: "Deaths",
           borderColor: "red",
           backgroundColor: "red",
+          spanGaps: true,
           fill: true,
         },
       ],
