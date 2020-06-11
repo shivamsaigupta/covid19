@@ -8,8 +8,8 @@ import { fetchData, fetchCountryData } from "./api";
 class App extends React.Component {
   state = {
     error: "er",
-    countryCode: "SE",
-    countryName: "Sweden",
+    countryCode: "DE",
+    countryName: "Germany",
   };
 
   onCountrySubmit = (value) => {

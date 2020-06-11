@@ -2,6 +2,7 @@
   "name": "covid19",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://shivamsaigupta.github.io/covid19",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -10,6 +11,7 @@
     "axios-retry": "^3.1.8",
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.3",
+    "gh-pages": "^3.0.0",
     "moment": "^2.26.0",
     "react": "^16.13.1",
     "react-autosuggest": "^10.0.2",
@@ -24,7 +26,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
