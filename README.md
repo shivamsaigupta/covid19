@@ -2,6 +2,8 @@
 
 A live dashboard to track COVID-19 cases around the world.
 
+[Live Preview](https://shivamsaigupta.github.io/covid19/)
+
 ![Preview](https://github.com/shivamsaigupta/covid19/blob/master/screenshot.jpg)
 
 
